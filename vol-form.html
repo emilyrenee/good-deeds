@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>good deeds | volunteer</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="https://fonts.googleapis.com/css?family=Lora|Pacifico|Questrial" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
+    <link href="./css/bootstrap-theme.min.css" rel="stylesheet">
+
+    <script src="./bootrap.min.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="container">
+      <div class="header clearfix">
+        <nav>
+          <ul class="nav nav-pills pull-right header-padding">
+            <li role="presentation" class="active"><a href="index.html">Home</a></li>
+            <li role="presentation"><a href="about.html">About</a></li>
+            <li role="presentation"><a href="#">Contact</a></li>
+          </ul>
+        </nav>
+        <h2 class="text-muted logo"><a href="index.html" class="logo-link-unstyled">good deeds</a></h2>
+      </div>
+
+    <div class="jumbotron jumbotron-plain">
+      <form>
+        <div class="form-group">
+          <label for="exampleInputName1">Name</label>
+          <input type="text" class="form-control" id="exampleInputName" aria-describedby="nameHelp" placeholder="First and last name">
+        </div>
+
+        <div class="form-group">
+          <label for="exampleInputEmail1">Email address</label>
+          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+           <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        </div>
+
+        <div class="form-group">
+          <label for="exampleInputAge1">Age</label>
+          <input type="text" class="form-control" id="exampleInputAge" aria-describedby="ageHelp" placeholder="Enter age">
+        </div>  
+
+        <div class="form-group">
+          <label for="exampleInputPassword1">Password</label>
+          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+       </div>
+
+<!-- SCHEDULING -->
+
+      <div class="form-group">
+        <label for="volunteer_starts">How soon can you volunteer?</label>
+        <select class="form-control" id="volunteer_starts">
+          <option>within 1 week</option>
+          <option>within 2 weeks</option>
+          <option>within 1 month</option>
+        </select>
+     </div>
+
+<!-- CALENDAR HERE -->
+
+
+<!-- VOLUNTEER INTEREST -->
+
+<div class="form-group">
+      <label for="exampleSelect2">Your interests</label>
+      <select multiple class="form-control" id="exampleSelect2">
+        <option>Animal welfare</option>
+        <option>Children</option>
+        <option>Elderly care</option>
+        <option>Environment</option>
+        <option>Emergency services</option>
+        <option>Food Insecurity</option>
+        <option>Women</option>
+     </select>
+    </div>
+
+ <!-- SKILLS -->
+    
+      <div class="form-check">
+        <label for="volunteer_skills">What skills can you offer?</label>
+        <br>
+          <label class="form-check-label">
+          <input type="checkbox" class="form-check-input">
+          Foreign Language
+        </label>
+      </div>  
+
+      <div class="form-check">
+        <label class="form-check-label">
+        <input type="checkbox" class="form-check-input">
+        Art
+        </label>
+      </div>  
+
+      <div class="form-check">
+        <label class="form-check-label">
+        <input type="checkbox" class="form-check-input">
+        Storytelling
+        </label>
+     </div>
+
+     <div class="form-check">
+        <label class="form-check-label">
+        <input type="checkbox" class="form-check-input">
+        Check me out
+        </label>
+     </div>
+
+<!-- ADDTIONAL INFO -->     
+
+    <div class="form-group">
+      <label for="additional_info">Anything else we should know?</label>
+      <textarea class="form-control" id="additional_info" rows="3"></textarea>
+    </div>
+
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+  </div> <!--FORM ENDS-->
+
+    <!-- --> 
+
+
+    <!--<div class="form-group">
+      <label for="exampleInputFile">File input</label>
+      <input type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
+      <small id="fileHelp" class="form-text text-muted">This is some placeholder block-level help text for the above input. It's a bit lighter and easily wraps to a new line.</small>
+    </div>-->
+
+    <!--<fieldset class="form-group">
+      <legend>Are you a group or individual?</legend>
+    <div class="form-check">
+      <label class="form-check-label">
+        <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+        Option one is this and that&mdash;be sure to include why it's great
+      </label>
+    </div>
+    <div class="form-check">
+    <label class="form-check-label">
+        <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios2" value="option2">
+        Option two can be something else and selecting it will deselect option one
+      </label>
+    </div>
+    <div class="form-check disabled">
+    <label class="form-check-label">
+        <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios3" value="option3" disabled>
+        Option three is disabled
+      </label>
+    </div>
+  </fieldset>
+  <div class="form-check">
+    <label class="form-check-label">
+      <input type="checkbox" class="form-check-input">
+      Check me out
+    </label>
+  </div>
+  -->
+
+      </div>
+
+      <footer class="footer">
+        <p>&copy; 2016 Company, Inc.</p>
+      </footer>
+
+    </div> <!-- /container -->
+
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+  </body>
+</html>
+
+
+
+<!--<form action="index.html" method="post">
+
+  <h1>Sign up to do good!</h1>
+  <fieldset>
+          <legend>Your basic info</legend>
+        
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="user_name">
+          <label for="email">Email:</label>
+          <input type="email" id="mail" name="user_email">
+          
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="user_password">
+
+          <label>Role:</label> 
+          <input type="radio" id="volunteer" value="volunteer" name="user_role">
+          <label for="volunteer">Volunteer</label>
+          <br>
+          <input type="radio" id="organization" value="organization" name="user_role">
+          <label for="organization">Organization</label>
+ </fieldset>
+
+<fieldset>
+          
+          <legend>Your profile</legend>
+          
+          <label for="bio">Biography:</label>
+          <textarea id="bio" name="user_bio"></textarea>
+
+  </fieldset>
+
+   <button type="submit">Sign Up</button>
+</form>
+-->
+
+     
