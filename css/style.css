@@ -91,7 +91,7 @@
   list-style: none;
   max-width: 100%;
   margin: 0 auto;
-  padding: 0;
+  padding: 4em 0;
 }
 
 .partner-item {
@@ -126,6 +126,10 @@
 }
 
 /********* FOOTER *********/
+
+footer {
+  padding: 3em;
+}
 
 .footer p {
   text-align: center;
