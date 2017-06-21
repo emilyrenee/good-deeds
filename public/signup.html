@@ -34,12 +34,16 @@
           <ul class="nav nav-pills pull-right header-padding">
             <li role="presentation" class="active"><a href="index.html">Home</a></li>
             <li role="presentation"><a href="about.html">About</a></li>
-            <li role="presentation"><a href="#">Contact</a></li>
+            <li role="presentation"><a href="contact.html">Contact</a></li>
           </ul>
         </nav>
         <h2 class="text-muted logo"><a href="index.html" class="logo-link-unstyled">good deeds</a></h2>
       </div>
 
+      <!-- bootstrap element to display message that signup is not open -->
+    <div class="alert alert-danger" role="alert">
+      Sign-up is not currently unavailable. Please check back on Friday, July 21st at 12pm EST.
+    </div>  
     <div class="jumbotron jumbotron-plain">
       <form method='POST' action='/signup'>
         <div class="form-group">
@@ -158,7 +162,7 @@
     </div>
 
 
-    <input type="submit" class="btn btn-primary">Submit</input>
+    <input type="submit" class="btn btn-primary submit"></input>
     </form>
 
   </div> <!--FORM ENDS-->
