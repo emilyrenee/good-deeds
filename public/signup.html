@@ -32,7 +32,7 @@
       <div class="header clearfix">
         <nav>
           <ul class="nav nav-pills pull-right header-padding">
-            <li role="presentation" class="active"><a href="index.html">Home</a></li>
+            <li role="presentation"><a href="index.html">Home</a></li>
             <li role="presentation"><a href="about.html">About</a></li>
             <li role="presentation"><a href="#">Contact</a></li>
           </ul>
@@ -44,34 +44,28 @@
       <form method='POST' action='/signup'>
         <div class="form-group">
           <label for="firstName">First name</label>
-          <input type="text" class="form-control" id="exampleInputName" aria-describedby="nameHelp" placeholder="First name">
+          <input type="text" name="firstName" class="form-control" id="exampleInputName" aria-describedby="nameHelp" placeholder="First name">
         </div>
 
         <div class="form-group">
           <label for="lastName">Last name</label>
-          <input type="text" class="form-control" id="exampleInputName" aria-describedby="nameHelp" placeholder="Last name">
+          <input type="text" name="lastName" class="form-control" id="exampleInputName" aria-describedby="nameHelp" placeholder="Last name">
         </div>
 
-
         <div class="form-group">
-          <label for="exampleInputEmail1">Email address</label>
-          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+          <label for="email1">Email address</label>
+          <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
         </div>
 
         <div class="form-group">
-          <label for="exampleInputAge1">Age</label>
-          <input type="text" class="form-control" id="exampleInputAge" aria-describedby="ageHelp" placeholder="Enter age">
-        </div>  
-
-        <div class="form-group">
-          <label for="exampleInputPassword1">Password</label>
-          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+          <label for="password">Password</label>
+          <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
        </div>
 
         <div class="form-group">
-          <label for="exampleConfirmPassword1">Confirm Password</label>
-          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+          <label for="confirmPassword">Confirm Password</label>
+          <input type="password" name="confirmPassword" class="form-control" id="exampleInputPassword1" placeholder="Password">
        </div>
      
      </br>
@@ -79,38 +73,38 @@
 <!-- VOLUNTEER INTEREST -->
     
       <div class="form-check">
-        <label for="volunteer_skills">In what sector(s) are you most interested in volunteering?</label>
+        <label for="volunteerSkills">In what sector(s) are you most interested in volunteering?</label>
         <br>
           <label class="form-check-label">
-          <input type="checkbox" class="form-check-input">
+          <input type="checkbox" name="animalWelfare" class="form-check-input">
           Animal welfare
         </label>
       </div>  
 
       <div class="form-check">
         <label class="form-check-label">
-        <input type="checkbox" class="form-check-input">
+        <input type="checkbox" name="children" class="form-check-input">
         Children
         </label>
       </div>  
 
       <div class="form-check">
         <label class="form-check-label">
-        <input type="checkbox" class="form-check-input">
+        <input type="checkbox" name="elderlyCare" class="form-check-input">
         Elderly care
         </label>
      </div>
 
      <div class="form-check">
         <label class="form-check-label">
-        <input type="checkbox" class="form-check-input">
+        <input type="checkbox" name="environment" class="form-check-input">
         Environment 
         </label>
      </div>    
 
       <div class="form-check">
         <label class="form-check-label">
-        <input type="checkbox" class="form-check-input">
+        <input type="checkbox" name="foodInsecurity" class="form-check-input">
         Food Insecurity 
         </label>
      </div>
@@ -122,28 +116,28 @@
         <label for="volunteer_skills">What skills can you offer?</label>
         <br>
           <label class="form-check-label">
-          <input type="checkbox" class="form-check-input">
+          <input type="checkbox" name="foreignLanguage" class="form-check-input">
           Foreign Language
         </label>
       </div>  
 
       <div class="form-check">
         <label class="form-check-label">
-        <input type="checkbox" class="form-check-input">
+        <input type="checkbox" name="art" class="form-check-input">
         Art
         </label>
       </div>  
 
       <div class="form-check">
         <label class="form-check-label">
-        <input type="checkbox" class="form-check-input">
+        <input type="checkbox" name="storytelling" class="form-check-input">
         Storytelling
         </label>
      </div>
 
      <div class="form-check">
         <label class="form-check-label">
-        <input type="checkbox" class="form-check-input">
+        <input type="checkbox" name="tech" class="form-check-input">
         Tech
         </label>
      </div>
@@ -153,8 +147,8 @@
 <!-- ADDTIONAL INFO -->     
 
     <div class="form-group">
-      <label for="additional_info">Anything else we should know?</label>
-      <textarea class="form-control" id="additional_info" rows="3"></textarea>
+      <label for="additionalInfo">Anything else we should know?</label>
+      <textarea name="additionalInfo" class="form-control" id="additional_info" rows="3"></textarea>
     </div>
 
 
