@@ -133,6 +133,15 @@
 .signin {
 }
 
+
+/********* PROFILE *********/
+#form1 {
+ display : none;
+}
+button {
+ margin-bottom: 10px;
+}
+
 /********* FOOTER *********/
 
 footer {

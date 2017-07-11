@@ -16,6 +16,15 @@ app.use(session({
 	saveUninitialized: false
 }));
 
+// make User Id avaiable to templates
+app.use(function (req, res, next) {
+  //locals add info (custom var) to res object
+    //views have access to locals
+  res.locals.currentUser = req.session.userId;
+  next();
+});
+
+
 // connect to mongodb on this machine to create db when app started
 mongoose.connect("mongodb://localhost:27017/gooddeeds");
 var db = mongoose.connection;
@@ -33,9 +42,9 @@ app.use(express.static('public'))
 app.get('/signin',function(req,res){
   res.sendFile('signin.html', {root: 'public'});
 });
-// app.get('/profile',function(req,res){
-//   res.sendFile('profile.html', {root: 'public'});
-// });
+app.get('/profile',function(req,res){
+  res.sendFile('profile.html', {root: 'public'});
+});
 
 // view engine setup for pug
 app.set('view engine', 'pug');

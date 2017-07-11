@@ -1,33 +1,40 @@
 'use strict';
 const express = require('express');
 const router = express.Router();
-var User = require('./models/user');
+const User = require('./models/user');
+const path = require('path');
 
 
-//Volunteer user profile
-router.get('/profile', function (req, res, next) {
-	if (! req.session.userId ) {
+// volunteer user GETs profile
+router.get('/profile/:id', function (req, res, next) {
+	// console.log(req.session);
+	console.log(req.session.userId, req.params.id);
+	console.log(req.session.userId !== req.params.id);
+	if (req.session.userId !== req.params.id) {
 		var err = new Error("You are not authorized to view this page.");
 		err.status = 403;
 		return next(err);
 	}
 	//capture user id
-	console.log('here');
-	User.findById(req.session.userId);   
-	   exec(function (error, user) {
+	User.findById(req.params.id)   
+	   .exec(function (error, user) {
 		   if (error) {
 	          return next(error);
 	        } else {
-	          console.log('User redirected: ' + req.params.id);
-			  res.sendFile('/profile.html', {root: __dirname});
-			  res.json()
-	          return res.json(user.firstName);
+	          console.log(user);	
+	          console.log('Found user: ' + req.params.id);
+	          console.log(res.locals.currentUser);
+	          //data displayed on profile
+	          return res.render('profile', 
+	          	{ 
+	          		name: user.firstName + ' ' + user.lastName 
+	          	});
 	        }
     });  
 });	   
 
 
-//Volunteers sign-up
+// volunteer user sign-up
 router.post('/signup', function(req, res, next) {
 	//require fields
 	if (req.body.firstName &&
@@ -35,9 +42,6 @@ router.post('/signup', function(req, res, next) {
     req.body.email &&
     req.body.password &&
     req.body.confirmPassword) {
-		// log data
-		console.log(req.body);
-		console.log('data provided'); 
 
 	    // confirm user typed same password twice
 	    if (req.body.password !== req.body.confirmPassword) {
@@ -57,11 +61,11 @@ router.post('/signup', function(req, res, next) {
      	// use schema's `create` method to insert document into Mongo
       	User.create(userData, function (error, user) {
         	if (error) {
-          	return next(error);
+          		return next(error);
         	} else {
-          	req.params.userId = user._id;
-          	console.log('user created' + user._id);
-          	return res.redirect('/profile');
+          		req.session.userId = user._id;
+          		console.log('user created' + user._id);
+          		return res.redirect('/profile/' + user._id );
         	}
       	});
 
@@ -75,8 +79,9 @@ router.post('/signup', function(req, res, next) {
 });
 
 
-//Volunteer users update profile
+// volunteer user update profile 
 router.put('/profile', function(req, res) {
+	console.log("update profile here");
 	var id = req.params._id;
 	var user = req.body;
 	if (user && user._id !== id) {
@@ -87,28 +92,32 @@ router.put('/profile', function(req, res) {
 		if (err) {
 			return res.status(500).json({err: err.message});
 		}
-  		// req.session.userId = user._id;
+  		req.session.userId = user._id;
+  		// save data sent
+  		res.user.updateOne(req.body, function(err, result) {
+  			if(err) return next(err);
+  			res.json(result);
+  		})
+		//updateOne()
   		console.log('user updated');
   		res.json({userData: userData, message: "User Updated"});
-  //redirect to profile
-  // return res.redirect('/profile');
-  // console.log('user redirected');
 });
 	//log data sent
 	console.log(req.body);
 
-	// save data sent
+	
 
 	res.json({
 		response: "A volunteer sent me a PUT request to /profile"
 	})
 })
 
+// volunteer user GET signin
 router.get('/signin', function(req, res, next) {
 	res.sendFile('/signin.html', {root: __dirname});
 });
 
-//Volunteer users to sign-in
+// volunteer user POST sign-in
 router.post('/signin', function(req, res, next) {
 	if (req.body.email && req.body.password) {
 		//call the method we created
@@ -122,7 +131,8 @@ router.post('/signin', function(req, res, next) {
 				//get user._id back from authenticate function
 				//user is our document
 				req.session.userId = user._id;
-				return res.redirect('/profile');
+          		console.log('user logged in: ' + user.firstName);
+          		return res.redirect('/profile/' + user._id );
 			}
 		});
 
@@ -132,11 +142,24 @@ router.post('/signin', function(req, res, next) {
 		return next(err);
 	}
 });
-	// POST /sign-in
 
-	//redirect to /profile
+// volunteer user GET sign-out
+router.get('/signout', function(req, res, next) {
+	if (req.session) {
+		// delete session object
+		req.session.destroy(function (err) {
+		console.log('session destroyed');
+			if(err) {
+				return next(err);
+			} else {
+				return res.redirect('/');
+				console.log('redirect');
+			}
+		});
+	}
+});
 
-//list all profiles
+// admin user GET all profiles
 // router.get('/profiles', function(req, res, next){
 // 	//list all profiles
 // 	mongoose.model('User').find({}, function(err, users) {

@@ -40,12 +40,19 @@
 
     <div class="col-lg-12">
       <div class="jumbotron jumbotron-plain">
-        <h1>Welcome, NAME</h1>
+        <h1>Welcome</h1>
+        <h2>First Name Last Name</h2>
         <div>
-          <h2>Interests</h3>
+          <h3>Interests</h3>
+            <ul>
+              <li>Food Insecurity</li>
+            </ul>
         </div>
         <div>
-          <h2>Skills</h2>
+          <h3>Skills</h3>
+            <ul>
+              <li>Foriegn Language</li>
+            </ul>
         </div>
         <button>Edit</button>  
       </div>
