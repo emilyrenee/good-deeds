@@ -192,18 +192,4 @@ router.delete('/profile/:id', function(req, res, next) {
 	})
 })
 
-
-// admin user GET all profiles
-// router.get('/profiles', function(req, res, next){
-// 	//list all profiles
-// 	mongoose.model('User').find({}, function(err, users) {
-// 		if (err) {
-//       		console.log(err);
-//       		return res.status(500).json(err);
-//     }
-//     res.send(users);
-// });
-// });	
-
-
 module.exports = router;
