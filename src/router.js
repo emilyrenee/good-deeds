@@ -175,7 +175,9 @@ router.get('/signout', function(req, res, next) {
 // volunteer user DELETE profile
 router.delete('/profile/:id', function(req, res, next) {
 	var id = req.session.userId;
-	  	//check id from session to authorize profile
+  	console.log(req.params);
+  	console.log(req.session.userId, req.params.id);
+	//check id from session to authorize profile
 	if (id !== req.params.id) {
 	    return res.status(500).json({err: "Ids don't match!"});
 	}
@@ -185,9 +187,9 @@ router.delete('/profile/:id', function(req, res, next) {
 			message: "User successfuly deactivated",
 			id
 		};
-		res.send(response);
+		console.log(response);
+		return res.send(response);
 	})
-	console.log('delete profile here!');
 })
 
 

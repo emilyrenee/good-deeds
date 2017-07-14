@@ -19,4 +19,7 @@ $( document ).ready( function() {
 
 $( "#delete" ).click( function() {
    console.log("clicked to delete.");
+   $.ajax({
+   	type: 'DELETE'
+   });
 });

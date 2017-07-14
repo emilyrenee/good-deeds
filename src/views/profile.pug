@@ -47,7 +47,8 @@ html(lang='en')
             input(name='newEmail', type='text', placeholder='New email', size='30')
             input(name='password', type='password', placeholder='Password', size='30')
             input.btn(type='submit')
-          button#delete Deactive Profile     
+          button#delete Deactive Profile 
+            a(href='/profile/#{id}')    
 
       script(src='https://code.jquery.com/jquery-3.2.1.min.js', integrity='sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=', crossorigin='anonymous')
       // IE10 viewport hack for Surface/desktop Windows 8 bug
