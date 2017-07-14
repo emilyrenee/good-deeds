@@ -27,7 +27,9 @@ router.get('/profile/:id', function (req, res, next) {
 	          //data displayed on profile
 	          return res.render('profile', 
 	          	{ 
-	          		name: user.firstName + ' ' + user.lastName 
+	          		name: user.firstName + ' ' + user.lastName,
+	          		email: user.email,
+	          		url: '/profile/' + user._id  
 	          	});
 	        }
     });  
@@ -63,6 +65,7 @@ router.post('/signup', function(req, res, next) {
         	if (error) {
           		return next(error);
         	} else {
+        		//create session?
           		req.session.userId = user._id;
           		console.log('user created' + user._id);
           		return res.redirect('/profile/' + user._id );
@@ -80,37 +83,47 @@ router.post('/signup', function(req, res, next) {
 
 
 // volunteer user update profile 
-router.put('/profile', function(req, res) {
+router.post('/profile/:id', function(req, res) {
 	console.log("update profile here");
-	var id = req.params._id;
-	var user = req.body;
-	if (user && user._id !== id) {
+	//capture id from the session?
+	var id = req.session.userId;
+	// var user = req.body;
+	var newEmail = req.body.newEmail;
+
+  	//log new data from user imput
+  	console.log(req.body);
+  	console.log(req.session.userId, req.params.id);
+	console.log(req.session.userId !== req.params.id);
+  	//check id from session to authorize profile
+	if (id !== req.params.id) {
 	    return res.status(500).json({err: "Ids don't match!"});
 	}
 
-    User.findByIdAndUpdate(id, userData, function (err, user) {
+	//find user
+    User.findById(id, function (err, user) {
+    	//errors
 		if (err) {
 			return res.status(500).json({err: err.message});
+		} else {
+			user.email = req.body.newEmail || user.email;
+			user.password = req.body.password;
 		}
-  		req.session.userId = user._id;
-  		// save data sent
-  		res.user.updateOne(req.body, function(err, result) {
-  			if(err) return next(err);
-  			res.json(result);
-  		})
-		//updateOne()
-  		console.log('user updated');
-  		res.json({userData: userData, message: "User Updated"});
+		//log the user
+		console.log(User.id);
+		//save data to db (update email)
+		user.save(function(err, updatedUser) {
+			if (err) {
+				return res.status(500).json({err: err.message});
+			}
+          	return res.redirect('/profile/' + user._id );
+			//render profile again 
+			//with confirmation that email was updated
+			//note - views can access locals object
+		});
+  		console.log('user updated');  	
+
+	});
 });
-	//log data sent
-	console.log(req.body);
-
-	
-
-	res.json({
-		response: "A volunteer sent me a PUT request to /profile"
-	})
-})
 
 // volunteer user GET signin
 router.get('/signin', function(req, res, next) {
@@ -132,7 +145,7 @@ router.post('/signin', function(req, res, next) {
 				//user is our document
 				req.session.userId = user._id;
           		console.log('user logged in: ' + user.firstName);
-          		return res.redirect('/profile/' + user._id );
+          		return res.redirect('/profile/' + user._id);
 			}
 		});
 
@@ -158,6 +171,25 @@ router.get('/signout', function(req, res, next) {
 		});
 	}
 });
+
+// volunteer user DELETE profile
+router.delete('/profile/:id', function(req, res, next) {
+	var id = req.session.userId;
+	  	//check id from session to authorize profile
+	if (id !== req.params.id) {
+	    return res.status(500).json({err: "Ids don't match!"});
+	}
+	//delete User
+	User.findByIdAndRemove(id, function(err, user) {
+		var response = {
+			message: "User successfuly deactivated",
+			id
+		};
+		res.send(response);
+	})
+	console.log('delete profile here!');
+})
+
 
 // admin user GET all profiles
 // router.get('/profiles', function(req, res, next){

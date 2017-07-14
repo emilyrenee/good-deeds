@@ -35,18 +35,19 @@ html(lang='en')
         .jumbotron.jumbotron-plain
           h1.
             Welcome, #{name}
+          p.
+            email: #{email}   
           h2.
             Interests:
           h2.
             Skills:
         div
           button#update Update Email  
-          form#form1(action="/profile", method='PUT')
-            input(name='email', type='text', placeholder='new email', size='30')
+          form#form1(action=url, method='POST')
+            input(name='newEmail', type='text', placeholder='New email', size='30')
             input(name='password', type='password', placeholder='Password', size='30')
-            input(type='hidden', name='_method', value='PUT')
             input.btn(type='submit')
-          button#delete Deactive Profile      
+          button#delete Deactive Profile     
 
       script(src='https://code.jquery.com/jquery-3.2.1.min.js', integrity='sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=', crossorigin='anonymous')
       // IE10 viewport hack for Surface/desktop Windows 8 bug

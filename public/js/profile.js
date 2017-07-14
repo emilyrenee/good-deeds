@@ -16,3 +16,7 @@ $( document ).ready( function() {
 // Using XMLHttpRequest / fetchto submit the form with the right http method.
 // Use a hidden form field and some sort of middleware that rewrites the request on the server side based on the value of the hidden form field.
 // That's pretty much it. Browsers don't support submitting forms with any method other than POST or GET.
+
+$( "#delete" ).click( function() {
+   console.log("clicked to delete.");
+});

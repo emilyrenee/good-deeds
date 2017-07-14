@@ -75,6 +75,7 @@ UserSchema.statics.authenticate = function(email, password, callback) {
 //hash password before user record is stored
 UserSchema.pre('save', function(next) {
   //user object created with user data
+  console.log('here!');
   var user = this;
   bcrypt.hash(user.password, 10, function(err, hash) {
     //callback replace plain text password with hashed one
