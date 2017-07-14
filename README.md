@@ -1,12 +1,12 @@
 # good-deeds
 
-A volunteer hub for non-profits and volunteers.
+A volunteer hub.
 
 ## getting started
 
 These instructions will guide you through setting up this project on your local machine.
 
-1. ```git clone ...url...```
+1. ```git clone https://github.com/emilyrenee/good-deeds.git```
 
 ## prerequisites
 
@@ -23,8 +23,8 @@ Then, start the server by running ```node``` or ```nodemon```
 3. ```nodemon```
 
 Once it is up and running, you will be able to:
-* create a profile 
+* create a volunteer user profile 
 * login in to your profile 
 * update profile information 
-* and deactivate your account
+* and deactivate your user account
 
