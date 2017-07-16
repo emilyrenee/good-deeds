@@ -5,36 +5,7 @@ const User = require('./models/user');
 const path = require('path');
 
 
-// volunteer user GETs profile
-router.get('/profile/:id', function (req, res, next) {
-	// console.log(req.session);
-	console.log(req.session.userId, req.params.id);
-	console.log(req.session.userId !== req.params.id);
-	if (req.session.userId !== req.params.id) {
-		var err = new Error("You are not authorized to view this page.");
-		err.status = 403;
-		return next(err);
-	}
-	//capture user id
-	User.findById(req.params.id)   
-	   .exec(function (error, user) {
-		   if (error) {
-	          return next(error);
-	        } else {
-	          console.log(user);	
-	          console.log('Found user: ' + req.params.id);
-	          console.log(res.locals.currentUser);
-	          //data displayed on profile
-	          return res.render('profile', 
-	          	{ 
-	          		name: user.firstName + ' ' + user.lastName,
-	          		email: user.email,
-	          		url: '/profile/' + user._id  
-	          	});
-	        }
-    });  
-});	   
-
+// SIGN UP
 
 // volunteer user sign-up
 router.post('/signup', function(req, res, next) {
@@ -43,34 +14,33 @@ router.post('/signup', function(req, res, next) {
     req.body.firstName &&
     req.body.email &&
     req.body.password &&
-    req.body.confirmPassword) {
+    req.body.confirmPassword
+	) {
+		// confirm user typed same password twice
+		if (req.body.password !== req.body.confirmPassword) {
+			var err = new Error('Passwords do not match.');
+			err.status = 400;
+			return next(err);
+		}
 
-	    // confirm user typed same password twice
-	    if (req.body.password !== req.body.confirmPassword) {
-	        var err = new Error('Passwords do not match.');
-	        err.status = 400;
-	        return next(err);
-	    }
+		// create object and new document for db
+		var userData = {
+			firstName: req.body.firstName,
+			lastName: req.body.lastName,
+			email: req.body.email,
+			password: req.body.password
+		};
 
-	    // create object and new document for db
-        var userData = {
-        	firstName: req.body.firstName,
-        	lastName: req.body.lastName,
-        	email: req.body.email,
-        	password: req.body.password
-      	};
-
-     	// use schema's `create` method to insert document into Mongo
-      	User.create(userData, function (error, user) {
-        	if (error) {
-          		return next(error);
-        	} else {
-        		//create session?
-          		req.session.userId = user._id;
-          		console.log('user created' + user._id);
-          		return res.redirect('/profile/' + user._id );
-        	}
-      	});
+		// use schema's `create` method to insert document into Mongo
+		User.create(userData, function (error, user) {
+			if (error) {
+					return next(error);
+			} else {
+				//create session?
+					req.session.userId = user._id;
+					return res.redirect('/profile/' + user._id );
+			}
+		});
 
     } else {
       //user didn't fill out form correctly	
@@ -81,49 +51,83 @@ router.post('/signup', function(req, res, next) {
 
 });
 
+// PROFILE
+
+// volunteer user GET profile
+router.get('/profile/:id', function (req, res, next) {
+    if (req.session.userId !== req.params.id) {
+        var err = new Error("You are not authorized to view this page.");
+        err.status = 403;
+        return next(err);
+    }
+    //capture user id
+    User.findById(req.params.id)
+        .exec(function (error, user) {
+            if (error) {
+                return next(error);
+            } else {
+                //data display on profile
+                return res.render('profile', {
+										name: user.firstName + ' ' + user.lastName,
+										email: user.email,
+										url: '/profile/' + user._id,
+										user_id: user._id,
+								});
+            }
+        });
+});
 
 // volunteer user update profile 
-router.post('/profile/:id', function(req, res) {
-	console.log("update profile here");
-	//capture id from the session?
+router.put('/profile/:id', function(req, res) {
+	// capture id from the session?
 	var id = req.session.userId;
-	// var user = req.body;
-	var newEmail = req.body.newEmail;
 
-  	//log new data from user imput
-  	console.log(req.body);
-  	console.log(req.session.userId, req.params.id);
-	console.log(req.session.userId !== req.params.id);
   	//check id from session to authorize profile
 	if (id !== req.params.id) {
 	    return res.status(500).json({err: "Ids don't match!"});
 	}
 
 	//find user
-    User.findById(id, function (err, user) {
-    	//errors
+	User.findById(id, function (err, user) {
+		//errors
 		if (err) {
 			return res.status(500).json({err: err.message});
 		} else {
 			user.email = req.body.newEmail || user.email;
 			user.password = req.body.password;
 		}
-		//log the user
-		console.log(User.id);
 		//save data to db (update email)
 		user.save(function(err, updatedUser) {
 			if (err) {
 				return res.status(500).json({err: err.message});
 			}
-          	return res.redirect('/profile/' + user._id );
-			//render profile again 
-			//with confirmation that email was updated
-			//note - views can access locals object
-		});
-  		console.log('user updated');  	
 
+			//redirect to updated profile
+			return res.json('ok');
+		});
 	});
 });
+
+// volunteer user DELETE profile
+router.delete('/profile/:id', function(req, res, next) {
+    var id = req.session.userId;
+
+    //check id from session to authorize profile
+    if (id !== req.params.id) {
+        return res.status(500).json({err: "Ids don't match!"});
+    }
+
+    //delete User
+    User.findByIdAndRemove(id, function(err, user) {
+    	if(err) {
+    		console.log('error removing user in route');
+        return res.status(500).json("error removing user");
+			}
+      return res.status(200).json("OK");
+    });
+});
+
+// SIGN-IN
 
 // volunteer user GET signin
 router.get('/signin', function(req, res, next) {
@@ -144,8 +148,7 @@ router.post('/signin', function(req, res, next) {
 				//get user._id back from authenticate function
 				//user is our document
 				req.session.userId = user._id;
-          		console.log('user logged in: ' + user.firstName);
-          		return res.redirect('/profile/' + user._id);
+				return res.redirect('/profile/' + user._id);
 			}
 		});
 
@@ -156,40 +159,16 @@ router.post('/signin', function(req, res, next) {
 	}
 });
 
+// SIGN OUT
+
 // volunteer user GET sign-out
 router.get('/signout', function(req, res, next) {
 	if (req.session) {
 		// delete session object
-		req.session.destroy(function (err) {
-		console.log('session destroyed');
-			if(err) {
-				return next(err);
-			} else {
-				return res.redirect('/');
-				console.log('redirect');
-			}
-		});
+		req.session.destroy();
 	}
+    console.log('redirect');
+    return res.redirect('/');
 });
-
-// volunteer user DELETE profile
-router.delete('/profile/:id', function(req, res, next) {
-	var id = req.session.userId;
-  	console.log(req.params);
-  	console.log(req.session.userId, req.params.id);
-	//check id from session to authorize profile
-	if (id !== req.params.id) {
-	    return res.status(500).json({err: "Ids don't match!"});
-	}
-	//delete User
-	User.findByIdAndRemove(id, function(err, user) {
-		var response = {
-			message: "User successfuly deactivated",
-			id
-		};
-		console.log(response);
-		return res.send(response);
-	})
-})
 
 module.exports = router;

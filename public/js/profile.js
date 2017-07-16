@@ -1,25 +1,65 @@
 'use strict';
 
-(function () {
-	console.log('here!!');
-})();
-
-//click edit to display form
+//click edit btn to display form
 $( document ).ready( function() {
   $( "#update" ).click( function() {
-    $( "#form1" ).toggle( 'slow' );
+    $( "#formEdit" ).toggle( 'slow' );
   });
 });
-// need api get route that returns json
-//write get that returns data 
-// //hit route with AJAX call
-// Using XMLHttpRequest / fetchto submit the form with the right http method.
-// Use a hidden form field and some sort of middleware that rewrites the request on the server side based on the value of the hidden form field.
-// That's pretty much it. Browsers don't support submitting forms with any method other than POST or GET.
 
-$( "#delete" ).click( function() {
-   console.log("clicked to delete.");
+//submit updated email
+$(".submitUpdate").click( function(e) {
+  e.preventDefault();
+  var id = e.target.value;
+  var url = 'http://localhost:3000/profile/' + id;
+  console.log("clicked to update ");
+  // console.log(url);
+  console.log($('.newEmailInput').val());
+  console.log($('.passwordInput').val());
+
+  $.ajax({
+    url: url,
+    type: 'PUT',
+    data: {
+      newEmail: $('.newEmailInput').val(),
+      password: $('.passwordInput').val(),
+    },
+    success: function() {
+      console.log('success');
+      alert("Account Updated.");
+    },
+    error: function (e) {
+      console.log('error')
+      console.log(e);
+    }
+  }).then(function(){
+    console.log('and then');
+    location.reload();
+  });
+});
+
+$( "#delete" ).click( function(e) {
+  e.preventDefault();
+   var id = e.target.value;
+   var url = 'http://localhost:3000/profile/' + id;
+   console.log("clicked to delete " + id);
+   console.log(url);
+
    $.ajax({
-   	type: 'DELETE'
+    url: url,
+   	type: 'DELETE',
+    success: function() {
+      console.log('success');
+    },
+    error: function (e) {
+        console.log('error')
+        console.log(e);
+    },
+    complete: function() {
+      alert("Account Deactivated.")
+    }
+   }).then(function(){
+     console.log('and then');
+     window.location.replace('/');
    });
 });

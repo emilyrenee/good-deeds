@@ -41,14 +41,13 @@ html(lang='en')
             Interests:
           h2.
             Skills:
-        div
-          button#update Update Email  
-          form#form1(action=url, method='POST')
-            input(name='newEmail', type='text', placeholder='New email', size='30')
-            input(name='password', type='password', placeholder='Password', size='30')
-            input.btn(type='submit')
-          button#delete Deactive Profile 
-            a(href='/profile/#{id}')    
+        .form-group
+          button#update Update Email
+          form#formEdit
+            input(name='newEmail', type='text', placeholder='New email', aria-describedby="emailHelp", size='30', class='newEmailInput')
+            input(name='password', type='password', placeholder='Password', size='30', class='passwordInput')
+            button.btn.submitUpdate(value=user_id) Update Profile
+          button#delete(value=user_id) Deactivate Profile
 
       script(src='https://code.jquery.com/jquery-3.2.1.min.js', integrity='sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=', crossorigin='anonymous')
       // IE10 viewport hack for Surface/desktop Windows 8 bug
