@@ -1,4 +1,5 @@
 'use strict';
+
 const express = require('express');
 const router = express.Router();
 const User = require('./models/user');
@@ -6,6 +7,9 @@ const path = require('path');
 
 
 // SIGN UP
+router.get('/signup', function(req,res, next){
+  return res.render('signup', { title: 'Sign Up'});
+});
 
 // volunteer user sign-up
 router.post('/signup', function(req, res, next) {
@@ -128,7 +132,9 @@ router.delete('/profile/:id', function(req, res, next) {
 });
 
 // SIGN-IN
-
+router.get('/signin',function(req,res){
+  res.render('signin');
+});
 // volunteer user POST sign-in
 router.post('/signin', function(req, res, next) {
 	if (req.body.email && req.body.password) {
@@ -164,6 +170,21 @@ router.get('/signout', function(req, res, next) {
 	}
     console.log('redirect');
     return res.redirect('/');
+});
+
+// GET /
+router.get('/', function(req, res, next) {
+  return res.render('index', { title: 'Home' });
+});
+
+// GET /about
+router.get('/about', function(req, res, next) {
+  return res.render('about', { title: 'About' });
+});
+
+// GET /contact
+router.get('/contact', function(req, res, next) {
+  return res.render('about', { title: 'Contact' });
 });
 
 module.exports = router;

@@ -1,0 +1,167 @@
+.wrapper {
+    padding: 0 1em 0 1em;
+}
+
+
+/********* HOME PAGE *********/
+/* NAV */
+nav {
+    padding-left: .7em;
+    padding-right: .7em;
+}
+
+.pills-padding {
+    padding: 2.5em 0 2.5em 0;
+}
+
+/*logo */
+h1 {
+    display: inline-block;
+}
+.logo {
+    font-family: 'Pacifico', cursive;
+    font-size: 3.75em;
+}
+
+.logo-link-unstyled {
+    color: #D70D54;
+    text-decoration: inherit;
+}
+
+.logo-link-unstyled:hover {
+    color: #F6A308;
+    text-decoration: inherit;
+}
+
+
+/*jumbotron */
+
+.jumbotron {
+    font-family: 'Questrial', sans-serif;
+    margin: 0 auto;
+    padding: 0 4em 0 4em;
+    color: white;
+    background-image: url(../img/jumbotron-fade.jpg);
+    background-position: 0% 25%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    max-width: 1000px;
+}
+
+.jumbotron-heading {
+  color: white !important;
+} 
+
+.jumbotron .lead {
+  font-family: 'Lora', serif;
+  color: white;
+}
+
+
+/********* VOLUNTEER FORM *********/
+
+.jumbotron-plain {
+  background-image: unset; /*removes image from background*/
+  background-image: none; /*removeds background image in IE*/
+}
+
+/********* ABOUT PAGE *********/
+
+.yellow-text {
+  color: #F6A308 !important;
+  display: inline-block;
+  /*margin: 25px 5px;*/
+}
+
+.img-about {
+    margin: auto 0;
+}
+
+.btn-right {
+  margin-top: 2em;
+}
+/********* CONACT PAGE *********/
+
+.contact-list {
+  list-style: none;
+}
+
+
+/********* SIGNIN *********/
+
+.signin {
+}
+
+
+/********* PROFILE *********/
+#formEdit {
+ display : none;
+}
+
+#formEdit {
+    padding: .75em 0;
+}
+
+.form-group {
+    padding: 0 0;
+}
+#deleteBtn,
+#updateBtn {
+ margin-bottom: 10px;
+}
+
+/********* FOOTER *********/
+
+footer {
+  padding: 3em;
+}
+
+.footer p {
+  text-align: center;
+  text-shadow: 6px red; 
+}
+
+
+/************
+// Medium devices (tablets, 768px and up)
+************/
+
+
+@media (min-width: 768px) {
+    .wrapper {
+        padding: 0 3em 0 3em;
+    }
+
+  .btn-right {
+    float: right;
+    margin-right: 2.3em;
+    margin-top: 1em;
+  }
+    .img-about {
+        padding: 0 2em 0 2em;
+    }
+
+    /* contact page */
+
+   .contact-list {
+    list-style: none;
+}
+
+      .pusher-side-content {
+        padding-top: 22%;
+        margin: auto 0;
+      }
+
+}
+
+@media (min-width: 1100px) {
+    .wrapper {
+        padding: 0 6em 0 6em;
+    }
+    .p-about {
+        max-width: 80%;
+    }
+    .img-about {
+        padding: 0 2em 0 2em;
+    }
+}

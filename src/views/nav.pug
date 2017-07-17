@@ -1,0 +1,16 @@
+nav
+    h1.text-muted.logo
+        a.logo-link-unstyled(href='/') good deeds
+    ul.nav.nav-pills.pull-right.pills-padding
+        li.active(role='presentation')
+            a(href='/') Home
+        li(role='presentation')
+            a(href='/about') About
+        li(role='presentation')
+            a(href='/contact') Contact
+        //if !currentUser
+        li(role='presentation')
+            a(href='signin') Log In
+        //if currentUser
+        li(role='presentation')
+            a(href='/profile/#{id}') My Profile
