@@ -10,7 +10,7 @@ These instructions will guide you through setting up this project on your local 
 
 ## prerequisites
 
-node or nodemon
+node version 6.10.3
 
 ## installing
 

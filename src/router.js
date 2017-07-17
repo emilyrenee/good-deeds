@@ -7,6 +7,9 @@ const path = require('path');
 
 // SIGN UP
 
+router.get('/signup'), function(req, res){
+	res.render('signup');
+};
 // volunteer user sign-up
 router.post('/signup', function(req, res, next) {
 	//require fields

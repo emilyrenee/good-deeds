@@ -1,0 +1,110 @@
+block content
+doctype html
+html(lang='en')
+    head
+        meta(charset='utf-8')
+        meta(http-equiv='X-UA-Compatible', content='IE=edge')
+        meta(name='viewport', content='width=device-width, initial-scale=1')
+        // The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags
+        meta(name='description', content='')
+        meta(name='author', content='')
+        link(rel='icon', href='../../favicon.ico')
+        title good deeds | sign up
+        // Bootstrap core CSS
+        link(href='https://fonts.googleapis.com/css?family=Lora|Pacifico|Questrial', rel='stylesheet')
+        link(rel='stylesheet', type='text/css', href='./css/style.css')
+        link(href='./css/bootstrap.min.css', rel='stylesheet')
+        link(href='./css/bootstrap-theme.min.css', rel='stylesheet')
+        script(src='./bootrap.min.js')
+        // HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries
+        //if lt IE 9
+          script(src='https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js')
+          script(src='https://oss.maxcdn.com/respond/1.4.2/respond.min.js')
+    body
+        .container
+            .header.clearfix
+                nav
+                    ul.nav.nav-pills.pull-right.header-padding
+                        li(role='presentation')
+                            a(href='index.html') Home
+                        li(role='presentation')
+                            a(href='about.html') About
+                        li(role='presentation')
+                            a(href='#') Contact
+                h2.text-muted.logo
+                    a.logo-link-unstyled(href='index.html') good deeds
+            .jumbotron.jumbotron-plain
+                form(method='POST', action='/signup')
+                    .form-group
+                        label(for='firstName') First name
+                        input#exampleInputName.form-control(type='text', name='firstName', aria-describedby='nameHelp', placeholder='First name')
+                    .form-group
+                        label(for='lastName') Last name
+                        input#exampleInputName.form-control(type='text', name='lastName', aria-describedby='nameHelp', placeholder='Last name')
+                    .form-group
+                        label(for='email') Email address
+                        input#email.form-control(type='email', name='email', aria-describedby='emailHelp', placeholder='Enter email')
+                        small#emailHelp.form-text.text-muted We'll never share your email with anyone else.
+                    .form-group
+                        label(for='password') Password
+                        input#exampleInputPassword1.form-control(type='password', name='password', placeholder='Password')
+                    .form-group
+                        label(for='confirmPassword') Confirm Password
+                        input#exampleInputPassword1.form-control(type='password', name='confirmPassword', placeholder='Password')
+                    br
+                    // VOLUNTEER INTEREST
+                    .form-check
+                        label(for='volunteerSkills') In what sector(s) are you most interested in volunteering?
+                        br
+                        label.form-check-label
+                            input.form-check-input(type='checkbox', name='animalWelfare')
+                            |           Animal welfare
+                    .form-check
+                        label.form-check-label
+                            input.form-check-input(type='checkbox', name='children')
+                            |         Children
+                    .form-check
+                        label.form-check-label
+                            input.form-check-input(type='checkbox', name='elderlyCare')
+                            |         Elderly care
+                    .form-check
+                        label.form-check-label
+                            input.form-check-input(type='checkbox', name='environment')
+                            |         Environment
+                    .form-check
+                        label.form-check-label
+                            input.form-check-input(type='checkbox', name='foodInsecurity')
+                            |         Food Insecurity
+                    br
+                    // SKILLS
+                    .form-check
+                        label(for='volunteer_skills') What skills can you offer?
+                        br
+                        label.form-check-label
+                            input.form-check-input(type='checkbox', name='foreignLanguage')
+                            |           Foreign Language
+                    .form-check
+                        label.form-check-label
+                            input.form-check-input(type='checkbox', name='art')
+                            |         Art
+                    .form-check
+                        label.form-check-label
+                            input.form-check-input(type='checkbox', name='storytelling')
+                            |         Storytelling
+                    .form-check
+                        label.form-check-label
+                            input.form-check-input(type='checkbox', name='tech')
+                            |         Tech
+                    br
+                    // ADDTIONAL INFO
+                    .form-group
+                        label(for='additionalInfo') Anything else we should know?
+                        textarea#additional_info.form-control(name='additionalInfo', rows='3')
+                    input.btn.btn-primary(type='submit')
+                    
+            // FORM ENDS
+        footer.footer
+            p © 2017 emily renee hagood
+        // /container
+        // IE10 viewport hack for Surface/desktop Windows 8 bug
+        script(src='../../assets/js/ie10-viewport-bug-workaround.js')

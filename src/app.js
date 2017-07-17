@@ -49,6 +49,9 @@ app.get('/profile',function(req,res){
 // view engine setup for pug
 app.set('view engine', 'pug');
 app.set('views', __dirname + '/views');
+app.get('/signup',function(req,res){
+  res.render('signup');
+});
 
 //include routes
 const router = require('./router');
