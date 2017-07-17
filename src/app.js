@@ -39,9 +39,6 @@ app.use(bodyParser.json());
 
 //serve static files
 app.use(express.static('public'))
-app.get('/signin',function(req,res){
-  res.sendFile('signin.html', {root: 'public'});
-});
 app.get('/profile',function(req,res){
   res.sendFile('profile.html', {root: 'public'});
 });
@@ -51,6 +48,9 @@ app.set('view engine', 'pug');
 app.set('views', __dirname + '/views');
 app.get('/signup',function(req,res){
   res.render('signup');
+});
+app.get('/signin',function(req,res){
+  res.render('signin');
 });
 
 //include routes

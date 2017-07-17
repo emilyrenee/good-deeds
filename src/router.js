@@ -7,9 +7,6 @@ const path = require('path');
 
 // SIGN UP
 
-router.get('/signup'), function(req, res){
-	res.render('signup');
-};
 // volunteer user sign-up
 router.post('/signup', function(req, res, next) {
 	//require fields
@@ -131,11 +128,6 @@ router.delete('/profile/:id', function(req, res, next) {
 });
 
 // SIGN-IN
-
-// volunteer user GET signin
-router.get('/signin', function(req, res, next) {
-	res.sendFile('/signin.html', {root: __dirname});
-});
 
 // volunteer user POST sign-in
 router.post('/signin', function(req, res, next) {
