@@ -4,13 +4,18 @@ nav
     ul.nav.nav-pills.pull-right.pills-padding
         li.active(role='presentation')
             a(href='/') Home
+        if !currentUser
+            li(role='presentation')
+                a(href='/signup') Sign Up
         li(role='presentation')
             a(href='/about') About
         li(role='presentation')
             a(href='/contact') Contact
-        //if !currentUser
-        li(role='presentation')
-            a(href='signin') Log In
-        //if currentUser
-        li(role='presentation')
-            a(href='/profile/#{id}') My Profile
+        if !currentUser
+            li(role='presentation')
+                a(href='/signin') Log In
+        if currentUser
+            li(role='presentation')
+                a(href='/signout') Log Out
+            li(role='presentation')
+                a(href='/profile/' + userId) My Profile
