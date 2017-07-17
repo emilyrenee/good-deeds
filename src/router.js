@@ -103,7 +103,7 @@ router.put('/profile/:id', function(req, res) {
 			}
 
 			//redirect to updated profile
-			return res.json('ok');
+			return res.json('ok')
 		});
 	});
 });

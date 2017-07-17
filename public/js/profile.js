@@ -1,11 +1,15 @@
 'use strict';
+function toggleEditForm () {
+  $( "#formEdit" ).toggle( 'slow' );
+  $('#updateBtn').hide();
+};
 
 //click edit btn to display form
 $( document ).ready( function() {
-  $( "#update" ).click( function() {
-    $( "#formEdit" ).toggle( 'slow' );
-  });
+  $( "#updateBtn" ).click(toggleEditForm);
 });
+
+$(".cancelUpdate").click(toggleEditForm);
 
 //submit updated email
 $(".submitUpdate").click( function(e) {
@@ -38,7 +42,7 @@ $(".submitUpdate").click( function(e) {
   });
 });
 
-$( "#delete" ).click( function(e) {
+$( "#deleteBtn" ).click( function(e) {
   e.preventDefault();
    var id = e.target.value;
    var url = 'http://localhost:3000/profile/' + id;
