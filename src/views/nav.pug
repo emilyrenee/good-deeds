@@ -1,0 +1,20 @@
+nav
+    h1.text-muted.logo
+        a.logo-link-unstyled(href='/') good deeds
+    ul.nav.nav-pills.pull-right.pills-padding
+        if !currentUser
+            each menuitem in [{title:'Home',url:'/'},{title:'About',url:'/about'},{title:'Contact',url:'/contact'},{title:'Sign Up',url:'/signup'},{title:'Sign In',url:'/signin'}]
+                if (menuitem.title == title)
+                    li.active
+                        a.active(href=menuitem.url) #{menuitem.title}
+                else
+                    li
+                        a(href=menuitem.url) #{menuitem.title}
+        if currentUser
+            each menuitem in [{title:'Home',url:'/'},{title:'About',url:'/about'},{title:'Contact',url:'/contact'},{title:'My Profile',url:'/profile/' + userId},{title:'Log Out',url:'/signout'}]
+                if (menuitem.title == title)
+                    li.active
+                        a.active(href=menuitem.url) #{menuitem.title}
+                else
+                    li
+                        a(href=menuitem.url) #{menuitem.title}

@@ -1,0 +1,15 @@
+extends layout
+
+block content
+    .col-lg-12
+        .jumbotron.jumbotron-plain.signin
+            form(method='POST', action='/signin')
+                .form-group
+                    label(for='email') Email address (username)
+                    input#email.form-control(type='email', name='email', aria-describedby='emailHelp', placeholder='Enter email')
+                    small#emailHelp.form-text.text-muted We'll never share your email with anyone else.
+                .form-group
+                    label(for='password') Password
+                    input#password.form-control(type='password', name='password', placeholder='Password')
+                br
+                button.btn.btn-primary(type='submit') Sign In

@@ -1,0 +1,72 @@
+extends layout.pug
+
+block content
+    .jumbotron.jumbotron-plain
+        form(method='POST', action='/signup')
+            .form-group
+                label(for='firstName') First name
+                input#exampleInputName.form-control(type='text', name='firstName', aria-describedby='nameHelp', placeholder='First name')
+            .form-group
+                label(for='lastName') Last name
+                input#exampleInputName.form-control(type='text', name='lastName', aria-describedby='nameHelp', placeholder='Last name')
+            .form-group
+                label(for='email') Email address
+                input#email.form-control(type='email', name='email', aria-describedby='emailHelp', placeholder='Enter email')
+                small#emailHelp.form-text.text-muted We'll never share your email with anyone else.
+            .form-group
+                label(for='password') Password
+                input#exampleInputPassword1.form-control(type='password', name='password', placeholder='Password')
+            .form-group
+                label(for='confirmPassword') Confirm Password
+                input#exampleInputPassword1.form-control(type='password', name='confirmPassword', placeholder='Password')
+            br
+            // VOLUNTEER INTEREST
+            .form-check
+                label(for='volunteerSkills') In what sector(s) are you most interested in volunteering?
+                br
+                label.form-check-label
+                    input.form-check-input(type='checkbox', name='animalWelfare')
+                    |           Animal welfare
+            .form-check
+                label.form-check-label
+                    input.form-check-input(type='checkbox', name='children')
+                    |         Children
+            .form-check
+                label.form-check-label
+                    input.form-check-input(type='checkbox', name='elderlyCare')
+                    |         Elderly care
+            .form-check
+                label.form-check-label
+                    input.form-check-input(type='checkbox', name='environment')
+                    |         Environment
+            .form-check
+                label.form-check-label
+                    input.form-check-input(type='checkbox', name='foodInsecurity')
+                    |         Food Insecurity
+            br
+            // SKILLS
+            .form-check
+                label(for='volunteer_skills') What skills can you offer?
+                br
+                label.form-check-label
+                    input.form-check-input(type='checkbox', name='foreignLanguage')
+                    |           Foreign Language
+            .form-check
+                label.form-check-label
+                    input.form-check-input(type='checkbox', name='art')
+                    |         Art
+            .form-check
+                label.form-check-label
+                    input.form-check-input(type='checkbox', name='storytelling')
+                    |         Storytelling
+            .form-check
+                label.form-check-label
+                    input.form-check-input(type='checkbox', name='tech')
+                    |         Tech
+            br
+            // ADDTIONAL INFO
+            .form-group
+                label(for='additionalInfo') Anything else we should know?
+                textarea#additional_info.form-control(name='additionalInfo', rows='3')
+            input.btn.btn-primary(type='submit')
+

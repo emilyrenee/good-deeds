@@ -1,0 +1,25 @@
+extends layout
+
+block content
+    .col-lg-12
+        .jumbotron.jumbotron-plain
+          h1.
+            Welcome, #{name}
+          p.
+            email: #{email}
+          h2.
+            Interests:
+          h2.
+            Skills:
+          button.btn#updateBtn Update Email
+          form#formEdit
+            h2.
+              Update Your Email
+            .form-group
+              input(name='newEmail', type='text', placeholder='New email', aria-describedby="emailHelp", size='30', class='newEmailInput')
+            .form-group
+              input(name='password', type='password', placeholder='Password', size='30', class='passwordInput')
+            button.btn.submitUpdate(value=user_id) Submit Update
+              button.btn.cancelUpdate(value=user_id) Cancel
+        button.btn#deleteBtn(value=user_id) Deactivate Profile
+
