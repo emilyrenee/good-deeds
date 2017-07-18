@@ -64,6 +64,6 @@ $( "#deleteBtn" ).click( function(e) {
     }
    }).then(function(){
      console.log('and then');
-     window.location.replace('/');
+     window.location.replace('/signout');
    });
 });
