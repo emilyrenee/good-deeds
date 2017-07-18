@@ -2,20 +2,19 @@ nav
     h1.text-muted.logo
         a.logo-link-unstyled(href='/') good deeds
     ul.nav.nav-pills.pull-right.pills-padding
-        li.active(role='presentation')
-            a(href='/') Home
         if !currentUser
-            li(role='presentation')
-                a(href='/signup') Sign Up
-        li(role='presentation')
-            a(href='/about') About
-        li(role='presentation')
-            a(href='/contact') Contact
-        if !currentUser
-            li(role='presentation')
-                a(href='/signin') Log In
+            each menuitem in [{title:'Home',url:'/'},{title:'About',url:'/about'},{title:'Contact',url:'/contact'},{title:'Sign Up',url:'/signup'},{title:'Sign In',url:'/signin'}]
+                if (menuitem.title == title)
+                    li.active
+                        a.active(href=menuitem.url) #{menuitem.title}
+                else
+                    li
+                        a(href=menuitem.url) #{menuitem.title}
         if currentUser
-            li(role='presentation')
-                a(href='/signout') Log Out
-            li(role='presentation')
-                a(href='/profile/' + userId) My Profile
+            each menuitem in [{title:'Home',url:'/'},{title:'About',url:'/about'},{title:'Contact',url:'/contact'},{title:'My Profile',url:'/profile/' + userId},{title:'Log Out',url:'/signout'}]
+                if (menuitem.title == title)
+                    li.active
+                        a.active(href=menuitem.url) #{menuitem.title}
+                else
+                    li
+                        a(href=menuitem.url) #{menuitem.title}
