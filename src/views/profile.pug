@@ -24,6 +24,7 @@ block content
                   input(name='newEmail', type='text', placeholder='New email', aria-describedby="emailHelp", size='30', class='newEmailInput')
                 .form-group
                   input(name='password', type='password', placeholder='Password', size='30', class='passwordInput')
-                button.btn.btn-success.submitUpdate(value=user_id) Submit Update
-                  button.btn.btn-warning.cancelUpdate(value=user_id) Cancel
+                .btn-group
+                    button.btn.btn-success.submitUpdate(value=user_id) Submit Update
+                    button.btn.btn-warning.cancelUpdate(value=user_id) Cancel
 
