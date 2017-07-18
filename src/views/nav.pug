@@ -1,20 +1,28 @@
-nav
-    h1.text-muted.logo
-        a.logo-link-unstyled(href='/') good deeds
-    ul.nav.nav-pills.pull-right.pills-padding
-        if !currentUser
-            each menuitem in [{title:'Home',url:'/'},{title:'About',url:'/about'},{title:'Contact',url:'/contact'},{title:'Sign Up',url:'/signup'},{title:'Sign In',url:'/signin'}]
-                if (menuitem.title == title)
-                    li.active
-                        a.active(href=menuitem.url) #{menuitem.title}
-                else
-                    li
-                        a(href=menuitem.url) #{menuitem.title}
-        if currentUser
-            each menuitem in [{title:'Home',url:'/'},{title:'About',url:'/about'},{title:'Contact',url:'/contact'},{title:'My Profile',url:'/profile/' + userId},{title:'Log Out',url:'/signout'}]
-                if (menuitem.title == title)
-                    li.active
-                        a.active(href=menuitem.url) #{menuitem.title}
-                else
-                    li
-                        a(href=menuitem.url) #{menuitem.title}
+#navbar-plain.nav.navbar.navbar-default.container-fluid
+    // Brand and toggle get grouped for better mobile display
+    .navbar-header.header-padding
+        button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1', aria-expanded='false')
+            span.sr-only Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+        a.text-muted.logo
+            h1.logo-link-unstyled(href='/') good deeds
+    #bs-example-navbar-collapse-1.collapse.navbar-collapse
+        ul.nav.navbar-nav.pull-right.nav-pills.nav-stacked
+            if !currentUser
+                each menuitem in [{title:'Home',url:'/'},{title:'About',url:'/about'},{title:'Contact',url:'/contact'},{title:'Sign Up',url:'/signup'},{title:'Sign In',url:'/signin'}]
+                    if (menuitem.title == title)
+                        li.active
+                            a.active(href=menuitem.url) #{menuitem.title}
+                    else
+                        li
+                            a(href=menuitem.url) #{menuitem.title}
+            if currentUser
+                each menuitem in [{title:'Home',url:'/'},{title:'About',url:'/about'},{title:'Contact',url:'/contact'},{title:'My Profile',url:'/profile/' + userId},{title:'Log Out',url:'/signout'}]
+                    if (menuitem.title == title)
+                        li.active
+                            a.active(href=menuitem.url) #{menuitem.title}
+                    else
+                        li
+                            a(href=menuitem.url) #{menuitem.title}

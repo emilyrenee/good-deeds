@@ -4,23 +4,30 @@
 
 /********* HOME PAGE *********/
 /* NAV */
-nav {
-    padding-left: .7em;
-    padding-right: .7em;
+.header-padding {
+    padding: .5em 1.25em;
 }
 
-.pills-padding {
-    padding: 2.5em 0 2.5em 0;
+#navbar-plain {
+    background-image: none;
+    background-color: inherit;
+    border: none;
+    border-radius: 0px;
+    border-color: #FFF;
+    box-shadow: none;
+}
+
+.navbar-nav>li>a:hover,
+.navbar-nav>li>a:focus {
+    text-decoration: none;
+    background-color: #1A88A4 !important;
+    color: #FFF !important;
 }
 
 /*logo */
-h1 {
-    display: inline-block;
-}
-
 .logo {
     font-family: 'Pacifico', cursive;
-    font-size: 3.75em;
+    display: inline;
 }
 
 .logo-link-unstyled {
@@ -29,7 +36,7 @@ h1 {
 }
 
 .logo-link-unstyled:hover {
-    color: #F6A308;
+    color: #DECE24;
     text-decoration: inherit;
 }
 
@@ -63,7 +70,7 @@ h1 {
 
 /********* ABOUT PAGE *********/
 .yellow-text {
-    color: #F6A308 !important;
+    color: #DECE24 !important;
     display: inline-block;
     /*margin: 25px 5px;*/
 }
@@ -113,6 +120,13 @@ footer {
         padding: 0 3em 0 3em;
     }
 
+    .header-padding {
+        padding: .5em 2em;
+    }
+    .nav-pills {
+        padding: 1em 0 1em 0 !important;
+    }
+
     .btn-right {
         float: right;
         margin-right: 2.3em;
@@ -138,6 +152,10 @@ footer {
 @media (min-width: 1100px) {
     .wrapper {
         padding: 0 6em 0 6em;
+    }
+
+    .header-padding {
+        padding: .5em 4em;
     }
 
     .p-about {
