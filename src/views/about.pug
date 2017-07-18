@@ -5,11 +5,12 @@ block content
         .col-md-6.col-lg-6.center-block.col-sm-8
             img.img-responsive.img-rounded.img-about(src='img/rosie.jpg')
         .col-lg-6.col-md-6.col-sm-8
-            h1.yellow-text what we do
+            h2.yellow-heading what we do
             p.p-about
                 | People want to volunteer now more than ever but knowing where and how to give your time and skills isn’t always clear. We strive to create a platform for volunteers from all backgrounds and skill levels to connect with local non-profits that need help.
             p.p-about
                 | Once you are registered with an account, we take care of matching you with an ideal non-profit partner to arrange a volunteer session.
             br
             p.p-about
-                a.btn.btn-lg.btn-info(href='/signup', role='button') Sign Up!
+                if !currentUser
+                    a.btn.btn-lg.btn-info(href='/signup', role='button') Sign Up!

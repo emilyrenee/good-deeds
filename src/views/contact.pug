@@ -2,8 +2,8 @@ extends layout
 
 block content
     .row
-        .col-md-4
-            ul.contact-list.pusher-side-content
+        .col-sm-4.col-xs-12.col-lg-4.col-md-6
+            ul.contact-list
                 li
                     p.subhead Call
                     p.alt-text-small 555-555-5555
@@ -16,10 +16,10 @@ block content
                         | 100 Main St.
                         br
                         | Louisville, KY 44444
-        .col-md-8
-            h1.yellow-text
+        .col-md-6.col-sm-6.col-lg-6.col-lg-offset-2.col-xs-12
+            h2.yellow-heading
                 | get in touch
-            form
+            form.contact-form
                 .col-md-10.contact-bg
                     .form-group
                         label(for='additional_info') What's up?

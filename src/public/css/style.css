@@ -25,18 +25,18 @@
 }
 
 /*logo */
-.logo {
+a.logo {
     font-family: 'Pacifico', cursive;
     display: inline;
 }
 
 .logo-link-unstyled {
-    color: #D70D54;
+    color: #D70D54 !important;
     text-decoration: inherit;
 }
 
 .logo-link-unstyled:hover {
-    color: #DECE24;
+    color: #DECE24 !important;
     text-decoration: inherit;
 }
 
@@ -44,7 +44,7 @@
 .jumbotron {
     font-family: 'Questrial', sans-serif;
     margin: 0 auto;
-    padding: 0 4em 0 4em;
+    /*padding: 0 4em 0 4em;*/
     color: white;
     background-image: url(../img/jumbotron-fade.jpg);
     background-position: 0% 25%;
@@ -69,19 +69,19 @@
 }
 
 /********* ABOUT PAGE *********/
-.yellow-text {
+.yellow-heading {
     color: #DECE24 !important;
     display: inline-block;
-    /*margin: 25px 5px;*/
 }
 
 .img-about {
     margin: auto 0;
 }
 
-/********* CONACT PAGE *********/
+/********* CONTACT PAGE *********/
 .contact-list {
     list-style: none;
+    margin: auto 0 !important;
 }
 
 /********* PROFILE *********/
@@ -140,6 +140,7 @@ footer {
     /* contact page */
     .contact-list {
         list-style: none;
+        padding-top: 2em;
     }
 
     .pusher-side-content {
@@ -151,9 +152,8 @@ footer {
 
 @media (min-width: 1100px) {
     .wrapper {
-        padding: 0 6em 0 6em;
+        padding: 0 10em 0 10em;
     }
-
     .header-padding {
         padding: .5em 4em;
     }
@@ -165,4 +165,5 @@ footer {
     .img-about {
         padding: 0 2em 0 2em;
     }
+
 }
