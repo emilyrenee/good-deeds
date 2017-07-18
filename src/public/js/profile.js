@@ -60,7 +60,7 @@ $( "#deleteBtn" ).click( function(e) {
         console.log(e);
     },
     complete: function() {
-      alert("Account Deactivated.")
+      prompt("Are you sure you want to deactivate your account?")
     }
    }).then(function(){
      console.log('and then');
