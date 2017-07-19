@@ -11,6 +11,7 @@ These instructions will guide you through setting up this project on your local 
 ## prerequisites
 
 node version 6.10.3
+
 npm
 
 ## installing
