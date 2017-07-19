@@ -3,6 +3,24 @@
 var mongoose = require('mongoose');
 var bcrypt = require('bcrypt');
 
+var InterestsSchema = new mongoose.Schema({
+  animalWelfare: {
+    type: Boolean
+  },
+  children: {
+    type: Boolean
+  },
+  elderlyCare: {
+    type: Boolean
+  },
+  environment: {
+    type: Boolean
+  },
+  foodInsecurity: {
+    type: Boolean
+  }
+});
+
 //gives monoose information about the document we want to store
 var UserSchema = new mongoose.Schema({
     firstName: {
@@ -25,23 +43,21 @@ var UserSchema = new mongoose.Schema({
       type: String,
       required: true
     },
-    //need to use check-box(s) option as an array
-    interests: {
+    // need to use check-box(s) option as an array
+    interestsList: {
       type: Array,
+      ref: 'InterestSchema',
       required: false,
-      trim: true
-    },
-    //need to use check-box option as an array
-    skills: {
-      type: Array,
-      required: false,
-      trim: true
-    },
-    extras: {
-      type: String,
-      required: false,
-      trim: true
-    },
+      // child: InterestsList,
+      children: [InterestsSchema]
+    }
+    // need to use check-box option as an array
+    // skillsList: {
+    //   type: Array,
+    //   required: mongoose.Schema.Types.ObjectId,
+    //   ref: 'Skills',
+    //   trim: false
+    // }
 });
 
 
@@ -88,4 +104,6 @@ UserSchema.pre('save', function(next) {
 });
 
 const User = mongoose.model('User', UserSchema);
+const Interests = mongoose.model('Interests', InterestsSchema);
+module.exports = Interests;
 module.exports = User;

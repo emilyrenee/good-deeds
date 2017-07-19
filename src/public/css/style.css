@@ -65,7 +65,7 @@ a.logo {
 /********* VOLUNTEER FORM *********/
 .jumbotron-plain {
     background-image: unset; /*removes image from background*/
-    background-image: none; /*removeds background image in IE*/
+    background-image: none; /*removes background image in IE*/
 }
 
 /********* ABOUT PAGE *********/

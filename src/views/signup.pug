@@ -22,9 +22,9 @@ block content
             br
             // VOLUNTEER INTEREST
             .form-check
-                label(for='volunteerSkills') In what sector(s) are you most interested in volunteering?
+                label(for='interestsList' name='interestList') In what sector(s) are you most interested in volunteering?
                 br
-                label.form-check-label
+                label(for="animalWelfare").form-check-label
                     input.form-check-input(type='checkbox', name='animalWelfare')
                     |           Animal welfare
             .form-check
@@ -46,7 +46,7 @@ block content
             br
             // SKILLS
             .form-check
-                label(for='volunteer_skills') What skills can you offer?
+                label(for='skillsList') What skills can you offer?
                 br
                 label.form-check-label
                     input.form-check-input(type='checkbox', name='foreignLanguage')
@@ -64,9 +64,5 @@ block content
                     input.form-check-input(type='checkbox', name='tech')
                     |         Tech
             br
-            // ADDTIONAL INFO
-            .form-group
-                label(for='additionalInfo') Anything else we should know?
-                textarea#additional_info.form-control(name='additionalInfo', rows='3')
             input.btn.btn-success.submit-btn(type='submit')
 

@@ -18,9 +18,13 @@ Run ```npm install```
 
 2. ```npm install```
 
-Then, start the server by running ```node``` or ```nodemon```
+From the root of the project, run mongod
 
-3. ```nodemon```
+3. ```mongod```
+
+Then, open a new terminal tab and start the server by running ```node``` or ```nodemon```
+
+4. ```nodemon```
 
 Once it is up and running, you will be able to:
 * create a volunteer user profile 
