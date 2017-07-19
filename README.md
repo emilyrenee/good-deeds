@@ -12,7 +12,10 @@ These instructions will guide you through setting up this project on your local 
 
 node version 6.10.3
 
+npm
+
 ## installing
+From the root of the project:
 
 Run ```npm install```
 
@@ -25,6 +28,8 @@ From the root of the project, run mongod
 Then, open a new terminal tab and start the server by running ```node``` or ```nodemon```
 
 4. ```nodemon```
+
+4. Visit http://localhost:3000/
 
 Once it is up and running, you will be able to:
 * create a volunteer user profile 
