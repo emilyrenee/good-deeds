@@ -4,21 +4,7 @@ var mongoose = require('mongoose');
 var bcrypt = require('bcrypt');
 
 var InterestsSchema = new mongoose.Schema({
-  animalWelfare: {
-    type: Boolean
-  },
-  children: {
-    type: Boolean
-  },
-  elderlyCare: {
-    type: Boolean
-  },
-  environment: {
-    type: Boolean
-  },
-  foodInsecurity: {
-    type: Boolean
-  }
+
 });
 
 //gives monoose information about the document we want to store
@@ -43,21 +29,35 @@ var UserSchema = new mongoose.Schema({
       type: String,
       required: true
     },
-    // need to use check-box(s) option as an array
-    interestsList: {
-      type: Array,
-      ref: 'InterestSchema',
-      required: false,
-      // child: InterestsList,
-      children: [InterestsSchema]
+    // interests
+    animalWelfare: {
+      type: String
+    },
+    children: {
+      type: String
+    },
+    elderlyCare: {
+      type: String
+    },
+    environment: {
+      type: String
+    },
+    foodInsecurity: {
+      type: String
+    },
+    //skills
+    foreignLanguage: {
+      type: String
+    },
+    art: {
+      type: String
+    },
+    storytelling: {
+      type: String
+    },
+    tech: {
+      type: String
     }
-    // need to use check-box option as an array
-    // skillsList: {
-    //   type: Array,
-    //   required: mongoose.Schema.Types.ObjectId,
-    //   ref: 'Skills',
-    //   trim: false
-    // }
 });
 
 

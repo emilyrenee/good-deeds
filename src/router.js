@@ -29,13 +29,22 @@ router.post('/signup', function(req, res, next) {
 			return next(err);
 		}
 		console.log(req.body);
+		console.log(req.body.animalWelfare);
 		// create object and new document for db
 		var userData = {
 			firstName: req.body.firstName,
 			lastName: req.body.lastName,
 			email: req.body.email,
 			password: req.body.password,
-			interestsList: req.body.interestsList
+			animalWelfare: req.body.animalWelfare,
+			children: req.body.children,
+			elderlyCare: req.body.elderlyCare,
+			environment: req.body.environment,
+			foodInsecurity: req.body.foodInsecurity,
+			foreignLanguage: req.body.foreignLanguage,
+			art: req.body.art,
+			storytelling: req.body.storytelling,
+			tech: req.body.tech
 		};
 
 		// use schema's `create` method to insert document into Mongo
@@ -74,7 +83,19 @@ router.get('/profile/:id', mid.requiresSignin, function (req, res, next) {
 										url: '/profile/' + user._id,
 										user_id: user._id,
 										userId: req.session.userId || null,
-										// interestsList: user.interestsList.interests
+										interestsList: [
+											user.animalWelfare,
+											user.children,
+											user.elderlyCare,
+											user.environment,
+											user.foodInsecurity
+										],
+										skillsList: [
+											user.foreignLanguage,
+											user.art,
+											user.storytelling,
+											user.tech
+										]
 								});
             }
         });
