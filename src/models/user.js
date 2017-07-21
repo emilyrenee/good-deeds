@@ -3,6 +3,10 @@
 var mongoose = require('mongoose');
 var bcrypt = require('bcrypt');
 
+var InterestsSchema = new mongoose.Schema({
+
+});
+
 //gives monoose information about the document we want to store
 var UserSchema = new mongoose.Schema({
     firstName: {
@@ -25,23 +29,35 @@ var UserSchema = new mongoose.Schema({
       type: String,
       required: true
     },
-    //need to use check-box(s) option as an array
-    interests: {
-      type: Array,
-      required: false,
-      trim: true
+    // Interests Check Box
+    animalWelfare: {
+      type: String
     },
-    //need to use check-box option as an array
-    skills: {
-      type: Array,
-      required: false,
-      trim: true
+    children: {
+      type: String
     },
-    extras: {
-      type: String,
-      required: false,
-      trim: true
+    elderlyCare: {
+      type: String
     },
+    environment: {
+      type: String
+    },
+    foodInsecurity: {
+      type: String
+    },
+    // Skills Check Box
+    foreignLanguage: {
+      type: String
+    },
+    art: {
+      type: String
+    },
+    storytelling: {
+      type: String
+    },
+    tech: {
+      type: String
+    }
 });
 
 
@@ -88,4 +104,6 @@ UserSchema.pre('save', function(next) {
 });
 
 const User = mongoose.model('User', UserSchema);
+const Interests = mongoose.model('Interests', InterestsSchema);
+module.exports = Interests;
 module.exports = User;

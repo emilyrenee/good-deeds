@@ -21,9 +21,13 @@ Run ```npm install```
 
 2. ```npm install```
 
-Then, start the server by running ```node``` or ```nodemon```
+From the root of the project, run mongod
 
-3. ```nodemon```
+3. ```mongod```
+
+Then, open a new terminal tab and start the server by running ```node``` or ```nodemon```
+
+4. ```nodemon```
 
 4. Visit http://localhost:3000/
 

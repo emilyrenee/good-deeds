@@ -22,51 +22,46 @@ block content
             br
             // VOLUNTEER INTEREST
             .form-check
-                label(for='volunteerSkills') In what sector(s) are you most interested in volunteering?
+                label(for='interestsList' name='interestList') In what sector(s) are you most interested in volunteering?
                 br
-                label.form-check-label
-                    input.form-check-input(type='checkbox', name='animalWelfare')
+                label(for="animalWelfare").form-check-label
+                    input.form-check-input(type='checkbox', name='animalWelfare', value='Animal Welfare')
                     |           Animal welfare
             .form-check
-                label.form-check-label
-                    input.form-check-input(type='checkbox', name='children')
+                label(for="children").form-check-label
+                    input.form-check-input(type='checkbox', name='children', value='Children')
                     |         Children
             .form-check
-                label.form-check-label
-                    input.form-check-input(type='checkbox', name='elderlyCare')
+                label(for="elderlyCare").form-check-label
+                    input.form-check-input(type='checkbox', name='elderlyCare', value='Elderly Care')
                     |         Elderly care
             .form-check
-                label.form-check-label
-                    input.form-check-input(type='checkbox', name='environment')
+                label(for="environment").form-check-label
+                    input.form-check-input(type='checkbox', name='environment', value='Environment')
                     |         Environment
             .form-check
-                label.form-check-label
-                    input.form-check-input(type='checkbox', name='foodInsecurity')
+                label(for="foodInsecurity").form-check-label
+                    input.form-check-input(type='checkbox', name='foodInsecurity', value='Food Insecurity')
                     |         Food Insecurity
             br
             // SKILLS
             .form-check
-                label(for='volunteer_skills') What skills can you offer?
+                label(for='skillsList') What skills can you offer?
                 br
-                label.form-check-label
-                    input.form-check-input(type='checkbox', name='foreignLanguage')
+                label(for="foreignLanguage").form-check-label
+                    input.form-check-input(type='checkbox', name='foreignLanguage', value='Foreign Language')
                     |           Foreign Language
             .form-check
-                label.form-check-label
-                    input.form-check-input(type='checkbox', name='art')
+                label(for="art").form-check-label
+                    input.form-check-input(type='checkbox', name='art', value='Art')
                     |         Art
             .form-check
-                label.form-check-label
-                    input.form-check-input(type='checkbox', name='storytelling')
+                label(for="storytelling").form-check-label
+                    input.form-check-input(type='checkbox', name='storytelling', value='Storytelling')
                     |         Storytelling
             .form-check
-                label.form-check-label
-                    input.form-check-input(type='checkbox', name='tech')
+                label(for="tech").form-check-label
+                    input.form-check-input(type='checkbox', name='tech', value='Tech')
                     |         Tech
             br
-            // ADDTIONAL INFO
-            .form-group
-                label(for='additionalInfo') Anything else we should know?
-                textarea#additional_info.form-control(name='additionalInfo', rows='3')
             input.btn.btn-success.submit-btn(type='submit')
-

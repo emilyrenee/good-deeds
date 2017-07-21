@@ -1,8 +1,8 @@
 .wrapper {
+    /*sits below nav*/
     padding: 0 1em 0 1em;
 }
 
-/********* HOME PAGE *********/
 /* NAV */
 .header-padding {
     padding: .5em 1.25em;
@@ -44,7 +44,6 @@ a.logo {
 .jumbotron {
     font-family: 'Questrial', sans-serif;
     margin: 0 auto;
-    /*padding: 0 4em 0 4em;*/
     color: white;
     background-image: url(../img/jumbotron-fade.jpg);
     background-position: 0% 25%;
@@ -61,11 +60,13 @@ a.logo {
     font-family: 'Lora', serif;
     color: white;
 }
+/********* HOME PAGE *********/
+
 
 /********* VOLUNTEER FORM *********/
 .jumbotron-plain {
     background-image: unset; /*removes image from background*/
-    background-image: none; /*removeds background image in IE*/
+    background-image: none; /*removes background image in IE*/
 }
 
 /********* ABOUT PAGE *********/
@@ -109,7 +110,6 @@ footer {
 
 .footer p {
     text-align: center;
-    text-shadow: 6px red;
 }
 
 /************

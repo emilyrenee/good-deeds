@@ -28,13 +28,23 @@ router.post('/signup', function(req, res, next) {
 			err.status = 400;
 			return next(err);
 		}
-
+		console.log(req.body);
+		console.log(req.body.animalWelfare);
 		// create object and new document for db
 		var userData = {
 			firstName: req.body.firstName,
 			lastName: req.body.lastName,
 			email: req.body.email,
-			password: req.body.password
+			password: req.body.password,
+			animalWelfare: req.body.animalWelfare,
+			children: req.body.children,
+			elderlyCare: req.body.elderlyCare,
+			environment: req.body.environment,
+			foodInsecurity: req.body.foodInsecurity,
+			foreignLanguage: req.body.foreignLanguage,
+			art: req.body.art,
+			storytelling: req.body.storytelling,
+			tech: req.body.tech
 		};
 
 		// use schema's `create` method to insert document into Mongo
@@ -42,7 +52,6 @@ router.post('/signup', function(req, res, next) {
 			if (error) {
 					return next(error);
 			} else {
-				//create session?
 					req.session.userId = user._id;
 					return res.redirect('/profile/' + user._id );
 			}
@@ -61,11 +70,6 @@ router.post('/signup', function(req, res, next) {
 
 // volunteer user GET profile
 router.get('/profile/:id', mid.requiresSignin, function (req, res, next) {
-    // if (req.session.userId !== req.params.id) {
-    //     var err = new Error("You are not authorized to view this page.");
-    //     err.status = 403;
-    //     return next(err);
-    // }
     //capture user id
     User.findById(req.params.id)
         .exec(function (error, user) {
@@ -78,7 +82,20 @@ router.get('/profile/:id', mid.requiresSignin, function (req, res, next) {
 										email: user.email,
 										url: '/profile/' + user._id,
 										user_id: user._id,
-										userId: req.session.userId || null
+										userId: req.session.userId || null,
+										interestsList: [
+											user.animalWelfare,
+											user.children,
+											user.elderlyCare,
+											user.environment,
+											user.foodInsecurity
+										],
+										skillsList: [
+											user.foreignLanguage,
+											user.art,
+											user.storytelling,
+											user.tech
+										]
 								});
             }
         });
