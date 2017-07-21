@@ -1,3 +1,4 @@
+// requires logged out user to access a route
 function loggedOut(req, res, next) {
   if (req.session && req.session.userId) {
     return res.redirect('/profile/' + user._id);

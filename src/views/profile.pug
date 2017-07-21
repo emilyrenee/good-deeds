@@ -9,12 +9,18 @@ block content
             email: #{email}
           h3.
             Interests:
-          p.
-            #{interestsList}
+          p
+            ul
+                each val in interestsList
+                    if val
+                        li= val
           h3.
             Skills:
-          p.
-            #{skillsList}
+          p
+              ul
+                  each val in skillsList
+                      if val
+                          li= val
           br
           br
           .btn-group

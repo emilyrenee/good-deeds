@@ -29,7 +29,7 @@ var UserSchema = new mongoose.Schema({
       type: String,
       required: true
     },
-    // interests
+    // Interests Check Box
     animalWelfare: {
       type: String
     },
@@ -45,7 +45,7 @@ var UserSchema = new mongoose.Schema({
     foodInsecurity: {
       type: String
     },
-    //skills
+    // Skills Check Box
     foreignLanguage: {
       type: String
     },
