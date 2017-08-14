@@ -11,7 +11,6 @@ const app = express();
 //in express, middleware is a function that has action to the request and response objects
   //custom middleware must call next()
 //serve static files
-// app.use('/', express.static(path.join(__dirname, 'public')));
 app.use(express.static(__dirname + '/public'));
 // view engine setup for pug
 app.set('view engine', 'pug');

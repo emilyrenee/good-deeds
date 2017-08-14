@@ -17,7 +17,7 @@ router.get('/signup', mid.loggedOut, function(req,res, next){
 router.post('/signup', function(req, res, next) {
 	//require fields
 	if (req.body.firstName &&
-    req.body.firstName &&
+    req.body.lastName &&
     req.body.email &&
     req.body.password &&
     req.body.confirmPassword
